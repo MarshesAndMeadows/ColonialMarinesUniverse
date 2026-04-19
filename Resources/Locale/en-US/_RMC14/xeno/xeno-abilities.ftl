@@ -44,7 +44,7 @@ cm-xeno-evolution-ready = Our carapace crackles and our tendons strengthen. We a
 cm-xeno-evolution-failed-already-have = There already is a living {$prototype}!
 cm-xeno-evolution-failed-hive-shaken = The Hive is shaken by the death of the last Queen. We can't find the strength to evolve.
 cm-xeno-evolution-failed-cannot-support = The Hive cannot support this caste yet!
-cm-xeno-evolution-failed-hive-full = The hive cannot support another Tier {$tier}, wait for either more aliens to be born or someone to die.
+cm-xeno-evolution-failed-hive-full = The hive cannot support another Tier {$tier}, wait for either more sisters to be born or someone to die.
 rmc-xeno-evolution-devolve-title = De-Evolve To
 rmc-xeno-evolution-devolve = You devolve to {$xeno}!
 rmc-xeno-evolution-cant-evolve-damaged = We must be at full health to evolve.
@@ -57,6 +57,24 @@ rmc-xeno-evolution-failed-early-weeds = The hive hasn't developed enough yet for
 rmc-xeno-evolution-failed-bad-location = We can't evolve here.
 rmc-xeno-evolution-start-self = We begin to twist and contort.
 rmc-xeno-evolution-start-others = {$xeno} begins to twist and contort.
+
+# Insight
+rmc-xeno-insight-empower = We have gained sufficient insight in our prey to empower our next Deploy Traps!
+
+# Deploy Traps
+rmc-xeno-deploy-traps-self = We create a sudden surge of traps!
+rmc-xeno-deploy-traps-others = {$xeno} creates a sudden surge of traps!
+rmc-xeno-deploy-traps-empower = We have tapped into our reserves to prepare a stronger Acid Mine!
+rmc-xeno-deploy-traps-see-fail = Theres something in the way!
+
+# Acid Mine
+rmc-xeno-acid-mine-self = We coax a hidden mine to detonate!
+rmc-xeno-acid-mine-others = {$xeno} coaxes a hidden mine to detonate!
+rmc-xeno-acid-mine-see-fail = Theres something in the way!
+
+# Adrenaline Surge
+rmc-xeno-adrenaline-surge-ready = You feel your adrenaline glands refill! Your speed boost will activate again.
+rmc-xeno-adrenaline-surge-start = Your adrenaline surges to enhance your speed!
 
 # Fortify
 cm-xeno-fortify-cant-headbutt = We can't headbutt while fortifying!

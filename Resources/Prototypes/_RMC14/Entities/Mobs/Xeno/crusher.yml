@@ -26,8 +26,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      700: Critical
-      800: Dead
+      800: Critical
+      900: Dead
   - type: Xeno
     role: CMXenoCrusher
     actionIds:
@@ -35,7 +35,6 @@
     - ActionXenoRegurgitate
     - ActionXenoWatch
     - ActionXenoTailStab
-    - ActionXenoStomp
     - ActionXenoDevolve
     tier: 3
     hudOffset: -0.15,0.1
@@ -47,18 +46,13 @@
     devolvesTo:
     - CMXenoWarrior
   - type: XenoDevour
-  - type: XenoStomp
-    damage:
-      types:
-        Blunt: 65
-    selfEffect: CMEffectSelfStomp
   - type: XenoAnimateMovement
   - type: XenoPlasma
-    plasma: 400
-    maxPlasma: 400
+    plasma: 500
+    maxPlasma: 500
     plasmaRegenOnWeeds: 4
   - type: CMArmor
-    xenoArmor: 30
+    xenoArmor: 40
     explosionArmor: 100
   - type: XenoClaws
     clawType: VerySharp
@@ -123,22 +117,70 @@
     - ActionXenoRegurgitate
     - ActionXenoWatch
     - ActionXenoTailStab
-    - ActionXenoCharge
-    - ActionXenoStomp
-    - ActionXenoDefensiveShield
+    - ActionXenoCrusherFling
+    - ActionXenoCrusherTrample
+    - ActionXenoCrusherHarden
+    - ActionXenoCrusherCrush
     - ActionXenoDevolve
-  - type: CrusherShield
-  - type: XenoCharge
+  - type: XenoCrusherFling
+    throwStrength: 9.0
+    throwRange: 7
+    landingStunTime: 0.8
+    landingDamage:
+      types:
+        Blunt: 15
+  - type: XenoCrusherTrample
+    coneAngle: 110
+    coneRange: 2.5
     damage:
       types:
+        Blunt: 35
+    slowTime: 2.5
+    knockdownChance: 0.30
+    knockdownTime: 0.6
+    cooldownReductionPerHit: 1.5
+  - type: XenoCrusherHarden
+    shieldMax: 200
+    shieldRegenRate: 12
+    plasmaDrainRate: 8
+    gracePeriod: 1.5
+    gracePeriodLocked: true
+  - type: XenoCrusherCrush
+    doAfterTime: 2.0
+    debrisSpeed: 14.0
+    debrisRange: 9
+    debrisDamage:
+      types:
         Blunt: 60
-        Structural: 750
-  - type: XenoShield
+        Structural: 400
+    debrisEntity: RMCCrusherDebrisPile
   - type: XenoEvolution
     strains:
     - RMCXenoCrusherCharger
   - type: RMCActionOrder
     id: RMCXenoCrusher
+
+- type: entity
+  id: RMCCrusherDebrisPile
+  name: crushed wreckage
+  description: Twisted metal and broken material flung by a Crusher.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Structures/debris.rsi
+    state: crusher_debris
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Clickable
+  - type: InteractionOutline
 
 - type: entity
   parent: CMXenoCrusherBase

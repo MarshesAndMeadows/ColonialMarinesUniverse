@@ -1603,4 +1603,68 @@
     state: gas_mine
 
 
+# ── Fling ──────────────────────────────────────────────────────────────────
+- type: entity
+  id: ActionXenoCrusherFling
+  name: Fling
+  parent: XenoAction
+  components:
+  - type: XenoActionComponent
+    plasmaCost: 50
+    cooldown: 8
+    icon:
+      sprite: /Textures/_RMC14/Actions/xeno_crusher.rsi
+      state: fling
+  - type: InstantAction
+    event: !type:XenoCrusherFlingActionEvent
+
+    # ── Trample ────────────────────────────────────────────────────────────────
+- type: entity
+  id: ActionXenoCrusherTrample
+  name: Trample
+  parent: XenoAction
+  components:
+  - type: XenoActionComponent
+    plasmaCost: 20
+    cooldown: 10          # base cooldown; reduced by hits (see component)
+    icon:
+      sprite: /Textures/_RMC14/Actions/xeno_crusher.rsi
+      state: trample
+  - type: InstantAction
+    event: !type:XenoCrusherTrampleActionEvent
+
+    # ── Harden ─────────────────────────────────────────────────────────────────
+- type: entity
+  id: ActionXenoCrusherHarden
+  name: Harden
+  parent: XenoAction
+  components:
+  - type: XenoActionComponent
+    plasmaCost: 0         # cost is ongoing drain, not up-front
+    cooldown: 2           # short toggle delay
+    icon:
+      sprite: /Textures/_RMC14/Actions/xeno_crusher.rsi
+      state: harden
+  - type: InstantAction
+    event: !type:XenoCrusherHardenActionEvent
+
+    # ── Crush ──────────────────────────────────────────────────────────────────
+- type: entity
+  id: ActionXenoCrusherCrush
+  name: Crush
+  parent: XenoAction
+  components:
+  - type: XenoActionComponent
+    plasmaCost: 75
+    cooldown: 20
+    icon:
+      sprite: /Textures/_RMC14/Actions/xeno_crusher.rsi
+      state: crush
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Barricade
+      - DestructibleWall
+    event: !type:XenoCrusherCrushActionEvent
+
 
